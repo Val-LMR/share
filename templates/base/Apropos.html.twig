@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}A propos{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 class="text-center text-primary display-3 fw-bold mb-4">À propos de Share</h1>
+
+    <p class="lead text-center text-secondary mb-5">
+        Share, c'est la façon la plus simple d'envoyer et de récupérer vos fichiers, sans prise de tête.
+    </p>
+
+    <div class="row g-4">
+        <div class="col-md-4 text-center">
+            <i class="bi bi-cloud-arrow-up text-primary display-4"></i>
+            <h3 class="mt-3">Déposez</h3>
+            <p>Importez vos fichiers en quelques clics, depuis votre ordinateur ou votre téléphone.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <i class="bi bi-folder text-secondary display-4"></i>
+            <h3 class="mt-3">Organisez</h3>
+            <p>Retrouvez tous vos documents au même endroit, classés et accessibles à tout moment.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <i class="bi bi-cloud-arrow-down text-warning display-4"></i>
+            <h3 class="mt-3">Partagez</h3>
+            <p>Envoyez un lien à vos proches ou collègues, ils téléchargent en un instant.</p>
+        </div>
+    </div>
+
+    <h2 class="text-center mt-5 mb-3">Notre histoire</h2>
+    <p class="text-center">
+        Share est né d'un constat simple : partager un fichier ne devrait pas être compliqué.
+        Ce projet a été conçu et développé dans le cadre d'une formation en développement web,
+        avec l'objectif de proposer un outil clair, rapide et facile à prendre en main.
+    </p>
+</div>
+
+{% endblock %}

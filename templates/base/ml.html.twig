@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Mentions légales{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 class="text-center text-primary fw-bold mb-5">Mentions légales</h1>
+
+    <h2 class="h4 text-secondary">1. Éditeur du site</h2>
+    <p>
+        Le site <strong>Share</strong> est édité par Valentin LEMAIRE, statut : étudiant,
+    </p>
+    <p>
+        Contact : valentin.lemaire@ynov.fr
+    </p>
+    <p>Directeur de la publication : Valentin LEMAIRE.</p>
+
+    <h2 class="h4 text-secondary mt-4">2. Hébergement</h2>
+    <p>
+        Le site est hébergé par OVH, 2 rue Kellermann - 59100 Roubaix - France,
+        ovhcloud.com.
+    </p>
+
+    <h2 class="h4 text-secondary mt-4">3. Propriété intellectuelle</h2>
+    <p>
+        Le contenu du site (textes, logo, éléments graphiques) est la propriété de l'éditeur,
+        sauf mention contraire. Toute reproduction sans autorisation préalable est interdite.
+    </p>
+
+    <h2 class="h4 text-secondary mt-4">4. Données personnelles</h2>
+    <p>
+        Les données collectées (par exemple via le formulaire de contact ou le dépôt de fichiers)
+        sont utilisées uniquement pour le fonctionnement du service. Conformément au RGPD et à la
+        loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de
+        suppression de vos données en écrivant à valentin.lemaire@ynov.fr.
+    </p>
+
+    <h2 class="h4 text-secondary mt-4">5. Cookies</h2>
+    <p>
+        Le site utilise uniquement des cookies nécessaires à son fonctionnement (session).
+        Aucun cookie publicitaire ou de suivi n'est déposé.
+    </p>
+
+    <h2 class="h4 text-secondary mt-4">6. Responsabilité</h2>
+    <p>
+        L'éditeur ne peut être tenu responsable du contenu des fichiers déposés par les
+        utilisateurs. Chaque utilisateur est responsable des fichiers qu'il partage et
+        s'engage à ne pas diffuser de contenu illégal.
+    </p>
+</div>
+{% endblock %}
