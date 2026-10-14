@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\ContactRepository;       //On lie notre controller avec notre repository
+use App\Repository\CategorieRepository;
+
+final class ContactController extends AbstractController
+{
+    #[Route('/liste-contact', name: 'app_liste_contacts')]
+    public function listeContacts(ContactRepository $contactRepository): Response
+    {
+        $contacts = $contactRepository->findAll();          //On va chercher tous les contacts
+
+        return $this->render('contact/liste_contacts.html.twig', [
+            'contacts' => $contacts,
+        ]);
+    }
+
+    #[Route('/categories', name: 'app_categories')]
+    public function categories(CategorieRepository $categorieRepository): Response
+    {
+        return $this->render('categorie/liste_categories.html.twig', [
+            'categories' => $categorieRepository->findAll(),
+        ]);
+    }
+}
+
+

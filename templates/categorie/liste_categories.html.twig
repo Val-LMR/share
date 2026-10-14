@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Share - Catégories{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Catégories</h1>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categorie in categories %}
+                    <tr>
+                        <td>{{ categorie.nom }}</td>
+                        <td><a href="{{path('app_modif_categorie', {'id':categorie.id})}}"><i class="bi bi-pencil text-dark"></i></a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="2" class="text-center">Aucune catégorie pour le moment.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

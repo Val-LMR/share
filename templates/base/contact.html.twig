@@ -3,8 +3,13 @@
 {% block title %}{{parent()}}Contact{% endblock %}
 
 {% block body %}
-<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Formulaire pour nous contacter</h1>
-
-
+<div class="container-fluid">   {##prendre toute la page##}
+    <div class="row justify-content-center">    {##on centre le contenu##}
+        <div class="col-10 text-primary">       {##couleur bleue##}
+            <h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Formulaire pour nous contacter</h1>
+            {{form(form)}}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

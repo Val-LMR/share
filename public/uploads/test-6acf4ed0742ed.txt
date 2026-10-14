@@ -1,0 +1,15 @@
+GRANT ALL PRIVILEGES ON *.* TO 'login4311'@'localhost';
+
+FLUSH PRIVILEGES;
+
+composer require symfony/orm-pack -W
+
+mariadb --version
+
+DATABASE_URL="mysql://login4311:MOT_DE_PASSE@127.0.0.1:3306/share?serverVersion=10.11.14-MariaDB&charset=utf8mb4"
+
+php bin/console doctrine:database:create
+
+php bin/console doctrine:database:drop --force
+
+php bin/console make:entity
