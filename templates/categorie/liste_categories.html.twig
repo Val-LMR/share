@@ -2,29 +2,48 @@
 
 {% block title %}Share - Catégories{% endblock %}
 
-{% block body %}
-    <div class="container mt-4">
-        <h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Catégories</h1>
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for categorie in categories %}
-                    <tr>
-                        <td>{{ categorie.nom }}</td>
-                        <td><a href="{{path('app_modif_categorie', {'id':categorie.id})}}"><i class="bi bi-pencil text-dark"></i></a></td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="2" class="text-center">Aucune catégorie pour le moment.</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-10 text-primary">
+            <h1 class="text-center text-primary mt-4 pt-4 display-3 fw-bold">Liste des catégories</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 p-4 m-0 text-primary">
+                        <div class="table-responsive">
+                            {{form_start(form) }}
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                      
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Action</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for categorie in categories %}
+                                    <tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">            {# Enchaine bleu, gris ... #}
+                                        <td>{{ categorie.nom }}</td>
+                                        <td>
+                                            <a href="{{path('app_modif_categorie', {'id':categorie.id})}}"><i class="bi bi-pencil text-dark"></i></a>
+                                            <a href="{{path('app_suppr_categorie', {'id':categorie.id})}}"><i class="bi bi-x-circle text-dark"></i></a>
+
+                                        </td>
+                                        <td> 
+                                            {{form_widget(form.categories[categorie.id]) }}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {{form_widget(form.Supprime) }}
+                            {{form_end(form) }}
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 {% endblock %}

@@ -24,7 +24,7 @@ class Fichier
     private ?\DateTimeImmutable $dateDepot = null;
 
     #[ORM\ManyToOne(inversedBy: 'fichiers')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?categorie $categorie = null;
 
     public function getId(): ?int

@@ -16,6 +16,7 @@ class CategorieType extends AbstractType
         $builder
             ->add('nom',TextType::class, ['attr' => ['class' => 'form-control'], 'label_attr' => ['class' => 'form-label mt-4']]) //champ du formulaire ce que l'user voit
             ->add('Ajouter', SubmitType::class, ['attr' => ['class' => 'btn btn-primary'], 'row_attr' => ['class' => 'text-center mt-4']])  //bouton envoi
+            ->add('Supprimer', SubmitType::class, ['attr' => ['class' => 'btn btn-primary'], 'row_attr' => ['class' => 'text-center mt-4']])  //bouton supp
         ;
     }
 
