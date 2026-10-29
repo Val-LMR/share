@@ -12,19 +12,21 @@
                         <tr>
                         <th scope="col">Adresse Mail</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Date d'inscription</th>
                         </tr>
                     </thead>
                     <tbody>
                     {%for user in users %} 
                         <tr class="{{cycle(['table-primary','table-secondary'],loop.index0)}}"> {#Pour faire une ligne bleu une grise ...#}
                             <td>{{user.email}}</td>    {#ce qui correspond à notre entité User.php#}
-                            {%if('ROLE_MOD' in user.roles) %}
+                            {%if('ROLE_MOD' in user.roles) %}   {#Test twig pour savoir si ROLE_MOD est dans le tableau #}
                                 <td>Modérateur  <i class="bi bi-person-fill-gear text-white"></i></td>
                             {% elseif 'ROLE_ADMIN' in user.roles %}
                                 <td>Administrateur <i class="bi bi-shield-lock"></i></td>
                             {%else %}
                                 <td>Utilisateur <i class="bi bi-person"></i></td>
                             {%endif %}
+                            <td>{{ user.dateInscription | date("d-m-Y à H:i") }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
