@@ -36,6 +36,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $dateInscription = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Nom = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Prenom = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,5 +127,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()       //Date de l'inscription
     {
         $this->dateInscription = new \DateTimeImmutable();
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->Nom;
+    }
+
+    public function setNom(string $Nom): static
+    {
+        $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->Prenom;
+    }
+
+    public function setPrenom(string $Prenom): static
+    {
+        $this->Prenom = $Prenom;
+
+        return $this;
     }
 }

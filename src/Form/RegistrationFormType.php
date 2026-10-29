@@ -12,6 +12,8 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 
 
 class RegistrationFormType extends AbstractType
@@ -19,6 +21,23 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom','attr' => ['class' => 'form-control'],'label_attr' => ['class' => 'form-label mt-4'],
+                'constraints' => [
+                    new NotBlank(message: 'Veuillez saisir votre prénom.'),     //Message pour taper le prenom
+                    new Length(max: 50, maxMessage: '50 caractères maximum.'),      //Maxi 50 caracteres
+                ],
+            ])
+
+            ->add('nom', TextType::class, [
+                'label' => 'Nom','attr' => ['class' => 'form-control'],'label_attr' => ['class' => 'form-label mt-4'],
+                'constraints' => [
+                    new NotBlank(message: 'Veuillez saisir votre nom.'),     //Message pour taper le nom
+                    new Length(max: 50, maxMessage: '50 caractères maximum.'),      //Maxi 50 caracteres
+                ],
+            ])
+
+
             ->add('email', EmailType::class, ['attr' => ['class' => 'form-control'], 'label_attr' => ['class' => 'form-label mt-4']]) 
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,

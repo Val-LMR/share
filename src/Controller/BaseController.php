@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Form\CategorieType;
 use App\Entity\Categorie;
 use App\Entity\Fichier;
+use App\Entity\User;
 use App\Form\FichierType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -109,6 +110,15 @@ final class BaseController extends AbstractController
 
         return $this->render('base/deposer.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+
+    #[Route('/profil', name: 'app_profil')]
+    public function profil(): Response
+    {
+        return $this->render('base/profil.html.twig', [
+            'user' => $this->getUser(),
         ]);
     }
 }

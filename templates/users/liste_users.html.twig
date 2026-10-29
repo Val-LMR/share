@@ -10,6 +10,8 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Nom</th>
                         <th scope="col">Adresse Mail</th>
                         <th scope="col">Role</th>
                         <th scope="col">Date d'inscription</th>
@@ -18,6 +20,8 @@
                     <tbody>
                     {%for user in users %} 
                         <tr class="{{cycle(['table-primary','table-secondary'],loop.index0)}}"> {#Pour faire une ligne bleu une grise ...#}
+                            <td>{{user.prenom}}</td>
+                            <td>{{user.nom}}</td>
                             <td>{{user.email}}</td>    {#ce qui correspond à notre entité User.php#}
                             {%if('ROLE_MOD' in user.roles) %}   {#Test twig pour savoir si ROLE_MOD est dans le tableau #}
                                 <td>Modérateur  <i class="bi bi-person-fill-gear text-white"></i></td>
