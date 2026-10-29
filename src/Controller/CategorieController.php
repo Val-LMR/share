@@ -15,7 +15,7 @@ use App\Form\SuppCategorieType;
 
 final class CategorieController extends AbstractController
 {
-    #[Route('/categories', name: 'app_categories')]
+    #[Route('/private-categories', name: 'app_categories')]     //On protege la route avec un private
     public function index(CategorieRepository $categorieRepository, Request $request, EntityManagerInterface $em): Response
     {
         $categories = $categorieRepository->findAll();
@@ -41,7 +41,7 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/modif-categorie/{id}', name: 'app_modif_categorie')]  
+    #[Route('/private-modif-categorie/{id}', name: 'app_modif_categorie')]  
     public function modifCategorie(Categorie $categorie, Request $request, EntityManagerInterface $em): Response    //Gestionnaire de dépendance
     {
         $form = $this->createForm(ModifCategorieType::class, $categorie);
@@ -61,7 +61,7 @@ final class CategorieController extends AbstractController
         
     }
 
-    #[Route('/suppr-categorie/{id}', name: 'app_suppr_categorie')]
+    #[Route('/private-suppr-categorie/{id}', name: 'app_suppr_categorie')]
     public function supprCategorie(Categorie $categorie, EntityManagerInterface $em): Response
     {
         if ($categorie != null) {
@@ -72,6 +72,11 @@ final class CategorieController extends AbstractController
         return $this->redirectToRoute('app_categories');
     }
 
+
+
+
+
+    
     /*
     #[Route('/supprMulti-categorie', name: 'app_suppr_multi_categorie', methods: ['POST'])]
     public function supprMultiCategories(Request $request, CategorieRepository $categorieRepository, EntityManagerInterface $em): Response  //Gestion de dépendance

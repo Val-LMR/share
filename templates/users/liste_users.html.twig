@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">Liste des utilisateurs</h1>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 bg-white p-4 m-0 text-primary">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">Adresse Mail</th>
+                        <th scope="col">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {%for user in users %} 
+                        <tr class="{{cycle(['table-primary','table-secondary'],loop.index0)}}"> {#Pour faire une ligne bleu une grise ...#}
+                            <td>{{user.email}}</td>    {#ce qui correspond à notre entité User.php#}
+                            {%if('ROLE_MOD' in user.roles) %}
+                                <td>Modérateur  <i class="bi bi-person-fill-gear text-white"></i></td>
+                            {% elseif 'ROLE_ADMIN' in user.roles %}
+                                <td>Administrateur <i class="bi bi-shield-lock"></i></td>
+                            {%else %}
+                                <td>Utilisateur <i class="bi bi-person"></i></td>
+                            {%endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+
+{% endblock %}

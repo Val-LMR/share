@@ -41,6 +41,12 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/private, roles: IS_AUTHENTICATED_FULLY }     #Toutes les URL qui commencent par /private bloque l'acces 
+        - { path: ^/mod, roles: ROLE_MOD }      #Le moderateur va accéder grace a /mod
+    role_hierarchy:     #On définit la hierarchie du site avec 3 roles différents
+        ROLE_MOD: [ROLE_USER]
+        ROLE_ADMIN: [ROLE_MOD]
+
 
 when@test:
     security:
